@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-3 shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+        <img
+    src="https://cdn-icons-png.flaticon.com/512/743/743007.png"
+    alt="Logo AutoRepuestos"
+    height="40"
+    class="rounded-circle shadow-sm"
+    />
+
+      <span class="fs-4 fw-bold">AutoRepuestos</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto fs-6 fw-semibold">
+        <li class="nav-item"><a class="nav-link px-3" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" routerLink="/acerca" routerLinkActive="active">Acerca</a></li>
+        <li class="nav-item"><a class="nav-link px-3" routerLink="/ventas" routerLinkActive="active">Ventas</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
