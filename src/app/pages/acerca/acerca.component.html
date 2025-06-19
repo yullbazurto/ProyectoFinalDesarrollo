@@ -1,1 +1,85 @@
-<p>acerca works!</p>
+<div class="container my-4">
+  <h2 class="mb-4">Acerca de Nosotros</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=900"
+           class="img-fluid rounded shadow" alt="about">
+    </div>
+    <div class="col-md-6">
+      <h4>Misión</h4>
+      <p>Ofrecer soluciones innovadoras, rápidas y confiables que faciliten a los propietarios de vehículos el acceso a repuestos de calidad, mejorando su experiencia y seguridad en el camino.</p>
+      <h4>Visión</h4>
+      <p>Consolidarnos como la plataforma líder en Latinoamérica en distribución de repuestos automotrices, siendo reconocidos por nuestra eficiencia, compromiso con el cliente y aporte al desarrollo tecnológico del sector.</p>
+    </div>
+  </div>
+
+  <h3 class="mt-5 mb-3">Nuestro equipo</h3>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let e of equipo">
+      <div class="card h-100 border-0 shadow-sm">
+        <img [src]="e.foto" class="card-img-top" style="height:220px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">{{ e.nombre }}</h5>
+          <small class="text-muted">{{ e.rol }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="mt-5 mb-3">Ubicaciones Representativas</h3>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+  <!-- Guayaquil -->
+  <div class="col">
+    <div class="card h-100 shadow text-white bg-dark">
+        <a href="https://www.google.com/maps/place/Guayaquil,+Ecuador" target="_blank">
+        <img src="/assets/ubicaciones/guayaquil.jpg"
+        alt="Guayaquil"
+        class="card-img-top"
+        style="height:220px;object-fit:cover" />
+        </a>
+      <div class="card-body">
+        <h5 class="card-title text-warning">Guayaquil</h5>
+        <p class="card-text">Nuestro primer punto de venta esta ubicado en la ciudad de Guayaquil.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quito -->
+  <div class="col">
+    <div class="card h-100 shadow text-white bg-dark">
+        <a href="https://www.google.com/maps/place/Quito,+Ecuador" target="_blank">
+        <img src="/assets/ubicaciones/quito.jpg"
+        alt="Quito"
+        class="card-img-top"
+        style="height:220px;object-fit:cover" />
+        </a>
+      <div class="card-body">
+        <h5 class="card-title text-warning">Quito</h5>
+        <p class="card-text">Nuestro segundo punto de venta esta ubicado en la ciudad de Quito,Capital del Ecuador.</p>
+      </div>
+    </div>
+  </div>
+ 
+
+  
+  <div class="col">
+    <div class="card h-100 shadow text-white bg-dark">
+        <!-- Cuenca -->
+    <a href="https://www.google.com/maps/place/Cuenca,+Ecuador" target="_blank">
+    <img src="/assets/ubicaciones/cuenca.jpg"
+        alt="Cuenca"
+        class="card-img-top"
+        style="height:220px;object-fit:cover" />
+    </a>
+      <div class="card-body">
+        <h5 class="card-title text-warning">Cuenca</h5>
+        <p class="card-text">Y por ultimo esta nuestra tercera ubicación de venta en la ciudad de Cuenca.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
