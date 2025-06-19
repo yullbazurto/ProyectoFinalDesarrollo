@@ -2,6 +2,7 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
+
   "projects": {
     "ProyectoPrimerParcial": {
       "projectType": "application",
@@ -9,28 +10,36 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+
       "architect": {
+
+        
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/proyecto-primer-parcial",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
+
+            
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets"
             ],
+
+            
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ],
-            "scripts": []
+
+           
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
           },
+
           "configurations": {
             "production": {
               "budgets": [
@@ -53,8 +62,11 @@
               "sourceMap": true
             }
           },
+
           "defaultConfiguration": "production"
         },
+
+       
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
@@ -67,9 +79,13 @@
           },
           "defaultConfiguration": "development"
         },
+
+       
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
         },
+
+        
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -78,16 +94,21 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+
+            
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets"
             ],
+
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           }
         }
       }
