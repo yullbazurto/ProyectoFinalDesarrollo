@@ -1,1 +1,61 @@
 <p>ventas works!</p>
+<div class="card p-4 shadow-sm">
+  <h3 class="text-center mb-3">{{ editando ? 'Editar Repuesto' : 'Agregar Repuesto' }}</h3>
+
+  <form (ngSubmit)="editando ? actualizarRepuesto() : agregarRepuesto()">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Nombre</label>
+        <input class="form-control" [(ngModel)]="nuevoRepuesto.nombre" name="nombre" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Marca</label>
+        <input class="form-control" [(ngModel)]="nuevoRepuesto.marca" name="marca" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Precio</label>
+        <input type="number" class="form-control" [(ngModel)]="nuevoRepuesto.precio" name="precio" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Imagen (desde tu PC)</label>
+        <input class="form-control" type="file" accept="image/*" (change)="onFileSelected($event)">
+      </div>
+    </div>
+
+    <div class="text-center mt-3" *ngIf="previewUrl">
+      <img [src]="previewUrl" alt="Vista previa" class="img-thumbnail" style="max-height: 200px;">
+    </div>
+
+    <div class="mt-4 d-flex justify-content-start gap-3">
+      <button class="btn btn-primary" type="submit">{{ editando ? 'Actualizar' : 'Agregar' }}</button>
+      <button *ngIf="editando" class="btn btn-secondary" type="button" (click)="cancelarEdicion()">Cancelar</button>
+    </div>
+  </form>
+</div>
+
+<hr>
+
+<h4 class="mb-3">Catálogo de Repuestos</h4>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+  <div class="col" *ngFor="let r of repuestos">
+    <div class="card h-100 shadow-sm">
+      <img [src]="r.imagen || 'https://placehold.co/400x250?text=Sin+imagen'"
+           (error)="handleImgError($event)"
+           class="card-img-top"
+           style="height:200px;object-fit:cover;">
+
+      <div class="card-body">
+        <h5 class="card-title">{{ r.nombre }}</h5>
+        <p class="card-text"><strong>Marca:</strong> {{ r.marca }}</p>
+        <p class="card-text"><strong>Precio:</strong> $ {{ r.precio }}</p>
+      </div>
+
+      <div class="card-footer d-flex justify-content-between">
+        <button class="btn btn-warning btn-sm" (click)="editarRepuesto(r)">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="eliminarRepuesto(r._id!)">
